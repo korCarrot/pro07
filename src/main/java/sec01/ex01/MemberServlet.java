@@ -49,23 +49,27 @@ public class MemberServlet extends HttpServlet {
 			
 			//memberForm.html에서 파라미터이름을 통한 값 가져오기
 			
-			String _id = request.getParameter("id");
-			String _pwd = request.getParameter("pwd");
-			String _name = request.getParameter("name");
-			String _email = request.getParameter("email");
+			String id = request.getParameter("id");
+			String pwd = request.getParameter("pwd");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
 			
-			System.out.println("가입정보" + _id+_pwd+_name+_email);
+			System.out.println("가입정보" + id+pwd+name+email);
 			
 			//멤버 객체에 저장
 			MemberVO vo = new MemberVO();
-			vo.setId(_id);
-			vo.setId(_pwd);
-			vo.setId(_name);
-			vo.setId(_email);
-			
-			
+			vo.setId(id);
+			vo.setPwd(pwd);
+			vo.setName(name);
+			vo.setEmail(email);
+
 			dao.addMember(vo);
 			
+		}else if(command!=null && command.equals("delMember")) {
+			System.out.println("여기는 삭제시 코드");
+			String id=request.getParameter("id");
+			System.out.println("삭제 id" + id);
+			dao.delMember(id);
 		}
 		
 		
@@ -102,9 +106,10 @@ public class MemberServlet extends HttpServlet {
 		
 		//for문으로 반복하며 인덱스를 통해 list의 값들을 저장
 		
-		pw.write("<tr><td>" + id + "</td><td>"+ pwd +"</td><td>"+ name +"</td><td>"+ email +"</td><td>"+ joinDate +"</td></tr>\r\n"
-				+ "    \r\n");
-		//열마다 값을 넣어주기를 반복
+		pw.write("<tr><td>" + id + "</td><td>"+ pwd +"</td><td>"+ name +"</td><td>"+ email +"</td><td>"
+				+ joinDate +"</td>"
+						+ "<td><a href='http://localhost:8090/pro07/member?command=delMember&id="+ id + "'>삭제</a></td></tr>");
+		
 		}
 		pw.write("</table>\r\n"
 				+ "</body>\r\n"

@@ -119,7 +119,7 @@ public class MemberDAO {
 	}
 	
 	
-	//회원을 추가하라는 메소드
+	//회원을 추가 메소드
 	public void addMember(MemberVO memberVO) {
 		try {
 			conn=dataFactory.getConnection();
@@ -128,6 +128,7 @@ public class MemberDAO {
 			String pwd = memberVO.getPwd();
 			String name = memberVO.getName();
 			String email = memberVO.getEmail();
+			System.out.println(id+pwd+name+email);
 			
 			String query="insert into t_member(id,pwd,name,email) VALUES(?,?,?,?)";
 			System.out.println("회원 추가 sql문 : " + query);
@@ -139,15 +140,33 @@ public class MemberDAO {
 			pstmt.setString(3, name);
 			pstmt.setString(4, email);
 			
-			
 			pstmt.executeUpdate();  // 추가시 executeUpdate
 			
 			pstmt.close();
+			
 		} catch (Exception e) {
 			System.out.println("회원추가시 에러");
 		}
 	}
 
+	//회원 삭제 코드
+		public void delMember(String id) {
+			System.out.println("삭제하고자 하는 id + "  +  id);
+			try {
+				conn = dataFactory.getConnection();
+				
+				String query = "delete from t_member" + " where id=?";
+				System.out.println("prepareStatememt:" + query);
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, id);
+				pstmt.executeUpdate();
+				pstmt.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	
 	
 	//DB 연결
 //	void connDB(){
