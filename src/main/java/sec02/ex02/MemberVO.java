@@ -17,10 +17,6 @@ public class MemberVO {
 		System.out.println("MemberVO 생성자 실행");
 	}
 
-	public MemberVO(String id) {
-		super();
-		this.id = id;
-	}
 	
 	
 	

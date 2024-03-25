@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21">
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+>>>>>>> 2d3df45dc9bbe51bb370515b263c88b13c645f44
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -13,6 +17,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Tool/lombok.jar"/>
+=======
+	<classpathentry kind="lib" path="E:/tool/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="E:/tool/lombok.jar"/>
+>>>>>>> 2d3df45dc9bbe51bb370515b263c88b13c645f44
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
